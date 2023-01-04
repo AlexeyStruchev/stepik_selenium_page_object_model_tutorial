@@ -14,5 +14,8 @@ class BasePage():
             return False
         return True
 
+    def find_element_simple(self, how_to_find, what):
+        self.browser.find_element(how_to_find, what)
+
     def open(self):
         self.browser.get(self.url)
