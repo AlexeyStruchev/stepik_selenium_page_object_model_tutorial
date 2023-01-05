@@ -9,13 +9,10 @@ class BasePage():
 
     def is_element_present(self, how_to_find, what):
         try:
-            self.browser.find_element(how_to_find, what)
+            return self.browser.find_element(how_to_find, what)
         except NoSuchElementException:
             return False
         return True
-
-    def find_element_simple(self, how_to_find, what):
-        self.browser.find_element(how_to_find, what)
 
     def open(self):
         self.browser.get(self.url)

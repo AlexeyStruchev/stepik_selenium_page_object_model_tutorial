@@ -14,5 +14,6 @@ class LoginPageLocators():
     register_confirm_password = (By.ID, "id_registration-password2")
 
 class ProductPageLocators():
-    product_basket_popup_message = (By.XPATH, '//*[@id="messages"]/div[1]/div/strong')
+    product_add_to_basket_button = (By.CLASS_NAME, 'btn-add-to-basket')
+    product_basket_popup_message = (By.CSS_SELECTOR, '#messages > div:nth-child(1) > div > strong')
     product_basket_popup_price = (By.CSS_SELECTOR, '#messages > div:nth-child(3) > div > p > strong')
