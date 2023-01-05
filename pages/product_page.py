@@ -4,10 +4,14 @@ from .locators import ProductPageLocators
 
 class ProductPage(BasePage):
     def basket_popup_message_and_price_should_be_equal_to_title_message_and_price(self):
-        self.cclick_add_to_basket_button()
+        self.should_be_promo_parameter_in_url()
+        self.click_add_to_basket_button()
+        self.solve_quiz_and_get_code()
         self.product_title_equal_to_basket_popup_title()
         self.product_price_is_equal_to_basket_popup_price()
 
+    def should_be_promo_parameter_in_url(self):
+        assert self.browser.current_url.find("promo=newYear"), "promo word is present in url"
     def click_add_to_basket_button(self):
         add_to_basket_button = self.is_element_present(*ProductPageLocators.product_add_to_basket_button)
         add_to_basket_button.click()
