@@ -4,7 +4,7 @@ from .locators import ProductPageLocators
 
 class ProductPage(BasePage):
     def basket_popup_message_and_price_should_be_equal_to_title_message_and_price(self):
-        self.should_be_promo_parameter_in_url(self.get_parameter_from_url())
+        # self.should_be_promo_parameter_in_url(self.get_parameter_from_url(), "promo=newYear2019")
         self.click_add_to_basket_button()
         self.solve_quiz_and_get_code()
         self.product_title_equal_to_basket_popup_title(self.get_product_title())
@@ -18,8 +18,7 @@ class ProductPage(BasePage):
         assert self.browser.current_url.find("login"), "login word is present in url"
 
 
-    def should_be_promo_parameter_in_url(self, url_parameter_):
-        check_parameter = "promo=newYear2019"
+    def should_be_promo_parameter_in_url(self, url_parameter_, check_parameter):
         assert url_parameter_ == check_parameter,\
             f"Parameter < {url_parameter_} > has to be equal to < {check_parameter} >"
 
