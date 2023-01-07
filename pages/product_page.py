@@ -48,14 +48,7 @@ class ProductPage(BasePage):
 
     def should_element_disapper(self):
         assert self.is_disappeared(*ProductPageLocators.DISAPPERED_ELEMENT), \
-            "Success message is presented, but should not be"
+            "Success message is not dissapeared, but should be"
 
-    def basket_cant_see_success_message_after_adding_product_to_basket(self):
+    def add_to_basket(self):
         self.click_add_to_basket_button()
-        self.should_not_be_success_message()
-
-    def basket_guest_cant_see_success_message(self):
-        self.should_not_be_success_message()
-
-    def basket_delivery_message_disappeared_after_adding_product_to_basket(self):
-        self.should_element_disapper()
