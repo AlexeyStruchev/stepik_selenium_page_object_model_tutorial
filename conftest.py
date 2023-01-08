@@ -17,6 +17,7 @@ def browser(request):
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
     browser = None
     browser = webdriver.Chrome(options=options)
+    browser.delete_all_cookies()
     yield browser
     print("\nquit browser..")
     browser.quit()
