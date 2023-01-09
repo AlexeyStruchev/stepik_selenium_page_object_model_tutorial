@@ -31,4 +31,4 @@ class ProductPageLocators():
 
 class BasketPageLocators():
     BASKET_IS_EMPTY_TEXT = (By.ID, 'content_inner')
-    BASKET_IS_EMPTY = (By.CLASS_NAME, 'col-sm-6') # If the basket is empty, there is no 'Items to buy now' element
+    BASKET_IS_EMPTY = (By.CLASS_NAME, 'col-sm-6')
