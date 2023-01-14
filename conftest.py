@@ -15,7 +15,7 @@ def browser(request):
     options.add_argument("--start-maximized")
     options.add_experimental_option('prefs', {'intl.accept_languages': language})
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    browser = None
+    options.add_argument("--headless")
     browser = webdriver.Chrome(options=options)
     yield browser
     print("\nquit browser..")

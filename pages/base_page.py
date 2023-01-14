@@ -1,14 +1,14 @@
+import math
 from selenium.webdriver import Remote as RemoteWebDriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.common.exceptions import TimeoutException
-from .locators import BasePageLocators
-import math
+from pages.locators import BasePageLocators
 
 
-class BasePage():
+class BasePage:
     def __init__(self, browser: RemoteWebDriver, url, timeout=1):
         self.browser = browser
         self.url = url
@@ -17,9 +17,11 @@ class BasePage():
     def should_be_authorized_user(self):
         assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
                                                                      " probably unauthorised user"
+
     def go_to_basket(self):
         go_to_basket_element = self.browser.find_element(*BasePageLocators.GO_TO_BASKET)
         go_to_basket_element.click()
+
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
@@ -39,7 +41,7 @@ class BasePage():
             print(f"Your code: {alert_text}")
             alert.accept()
         except NoAlertPresentException:
-             print("No second alert presented")
+            print("No second alert presented")
 
     def is_disappeared(self, how, what, timeout=4):
         try:
@@ -58,10 +60,10 @@ class BasePage():
 
     def is_element_present(self, how_to_find, what):
         try:
-            return self.browser.find_element(how_to_find, what)
+            element = self.browser.find_element(how_to_find, what)
         except NoSuchElementException:
             return False
-        return True
+        return element
 
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented but should be"

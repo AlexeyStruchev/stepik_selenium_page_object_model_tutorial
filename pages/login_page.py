@@ -1,13 +1,14 @@
-import time
+from faker import Faker
 from pages.base_page import BasePage
 from pages.locators import LoginPageLocators
-from faker import Faker
+
 
 class LoginPage(BasePage):
     def register_new_user(self):
         self.fill_email()
         self.fill_password()
         self.click_register_button()
+
     def should_be_login_page(self):
         self.should_be_login_url()
         self.should_be_login_form()
