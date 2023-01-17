@@ -43,9 +43,9 @@ class ProductPage(BasePage):
         assert url_parameter_ == check_parameter, \
             f"Parameter < {url_parameter_} > has to be equal to < {check_parameter} >"
 
-    def should_element_disapper(self):
+    def should_element_disappear(self):
         assert self.is_disappeared(*ProductPageLocators.DISAPPEARED_ELEMENT), \
-            "Success message is not dissapeared, but should be"
+            "Success message is not disappeared, but should be"
 
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
