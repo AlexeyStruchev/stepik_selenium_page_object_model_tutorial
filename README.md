@@ -21,3 +21,9 @@ pip install -r requirements.txt
 For running tests as written in the lesson task use command: 
     
     pytest -v --tb=line --language=en -m need_review test_product_page.py
+
+For a faster execution of tests there can be used an option parameter for silent browser use.
+In this mode a browser is not opened.
+The parameter should be inserted in conftest.py file for a browser fixture:
+    
+    options.add_argument("--headless")
