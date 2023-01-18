@@ -58,7 +58,7 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
     order_page = ProductPage(browser, link)
     order_page.open()
     order_page.add_to_basket()
-    order_page.should_element_disapper()
+    order_page.should_element_disappear()
 
 
 @pytest.mark.xfail
